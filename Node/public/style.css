@@ -1,0 +1,16 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #f2f2f2;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  color: #222;
+  padding: 0.5em;
+}
