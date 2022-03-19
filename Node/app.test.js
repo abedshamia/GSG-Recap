@@ -1,4 +1,4 @@
-const {expect} = require('@jest/globals');
+/* eslint-disable no-undef */
 const supertest = require('supertest');
 const app = require('./app');
 
