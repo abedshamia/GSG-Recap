@@ -3,12 +3,20 @@ const {join} = require('path');
 const cookieParser = require('cookie-parser');
 const errorHandler = require('./middlewares/errorHandler');
 const connection = require('./database/config/connection');
+const userRouter = require('./routes/userRoutes');
+const logger = (req, res, next) => {
+  console.log(`${req.method} ${req.url} ${res.statusCode}`);
+  next();
+};
+
 const app = express();
+app.use(logger);
 app.use(cookieParser());
 app.disable('x-powered-by');
 app.use(express.urlencoded({extended: false}));
 app.use(express.static(join(__dirname, '..', 'public')));
 app.use(express.json());
+app.use('/api/users', userRouter);
 
 app.get('/users/:id', async (req, res) => {
   const {id} = req.params;
